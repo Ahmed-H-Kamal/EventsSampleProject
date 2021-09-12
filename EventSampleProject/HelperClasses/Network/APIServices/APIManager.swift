@@ -15,12 +15,12 @@ enum Error: String{
     case failed
 }
 class ApiManager: BaseApiManager {
-
+    
     class func makeApiCall(with url: String,
                            method: HTTPMethod = .post,
                            params: [String: Any] = [:],
                            headers: HTTPHeaders? = nil,
-                           completion: @escaping ( _ result: [String: Any]?, _ jsonResponse: Data?, _ error:Error?) -> ()) {
+                           completion: @escaping ( _ result: [String: Any]?, _ error:Error?) -> ()) {
         if method == .get {
             let dataRequest = self.getDataRequest(url,
                                                   params: params,
@@ -50,14 +50,12 @@ class ApiManager: BaseApiManager {
                     if let JSONString = String(data: response.data ?? Data(), encoding: String.Encoding.utf8){
                         print("RESPONSE: \(JSONString)")
                     }
-                    let statusCode = response.response?.statusCode
-                  
-                        if let value = value as? [String: Any]{
-                            completion(value, nil)
-                        }
-                        else{
-                            completion(nil, response.data, nil)
-                        }
+                    if let value = value as? [String: Any]{
+                        completion(value, nil)
+                    }
+                    else{
+                        completion(nil, Error.failed)
+                    }
                     
                 case .failure(let value):
                     print("RESPONSE ERROR: \(value)")
@@ -80,7 +78,7 @@ class BaseApiManager: NSObject {
         let manager = Alamofire.Session.default
         manager.session.configuration.timeoutIntervalForRequest = 300
         let dataRequest = manager.request(url, method: method, parameters: params, encoding: encoding, headers: headers)
-
+        
         return dataRequest
     }
     
