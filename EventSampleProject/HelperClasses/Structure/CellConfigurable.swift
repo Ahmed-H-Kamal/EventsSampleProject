@@ -7,6 +7,6 @@
 
 import Foundation
 
-@objc protocol CellConfigurable {
+protocol CellConfigurable {
     func setup(viewModel: RowViewModel)
 }

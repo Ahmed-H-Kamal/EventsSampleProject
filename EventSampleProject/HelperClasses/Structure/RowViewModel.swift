@@ -8,8 +8,14 @@
 
 import Foundation
 
-@objc public protocol RowViewModel {
+public protocol RowViewModel {
     func cellIdentifier() -> String
+}
+
+extension RowViewModel {
+    func cellIdentifier() -> String{
+        return ""
+    }
 }
 
 public protocol ViewModelPressible {

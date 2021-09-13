@@ -9,17 +9,14 @@ import Foundation
 
 public class SectionViewModel {
     var rowViewModels: [RowViewModel]
-    var isEnable : Bool
     var sectionHeight : Float = 0.0
     var sectionModel : SectionModel?
 
-    public init(rowViewModels :[RowViewModel] ,
-                isEnable : Bool,
+    public init(rowViewModels :[RowViewModel],
                 sectionHeight : Float,
                 sectionModel : SectionModel?)
     {
         self.rowViewModels = rowViewModels
-        self.isEnable = isEnable
         self.sectionHeight = sectionHeight
         self.sectionModel = sectionModel
     }

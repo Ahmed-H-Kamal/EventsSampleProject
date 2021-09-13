@@ -7,5 +7,6 @@ target 'EventSampleProject' do
 
   # Pods for EventSampleProject
     pod 'Alamofire'
+    pod 'SVProgressHUD'
 
 end

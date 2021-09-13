@@ -19,8 +19,8 @@ class ApiManager: BaseApiManager {
     class func makeApiCall(with url: String,
                            method: HTTPMethod = .post,
                            params: [String: Any] = [:],
-                           headers: HTTPHeaders? = nil,
-                           completion: @escaping ( _ result: [String: Any]?, _ error:Error?) -> ()) {
+                           headers: HTTPHeaders? = getAPIHeader(),
+                           completion: @escaping ( _ result: Data?, _ error:Error?) -> ()) {
         if method == .get {
             let dataRequest = self.getDataRequest(url,
                                                   params: params,
@@ -39,23 +39,18 @@ class ApiManager: BaseApiManager {
     }
     
     private class func executeDataRequest(_ dataRequest: DataRequest,
-                                          with completion: @escaping ( _ result: [String: Any]?, _ error:Error?) -> ())
+                                          with completion: @escaping ( _ result: Data?, _ error:Error?) -> ())
     {
         dataRequest.validate(contentType: ["application/json"]).responseJSON { response in
             DispatchQueue.main.async {
                 switch response.result {
-                case .success(let value):
+                case .success:
                     print("REQUEST:")
                     print(String(decoding: response.request?.httpBody ?? Data(), as: UTF8.self))
                     if let JSONString = String(data: response.data ?? Data(), encoding: String.Encoding.utf8){
                         print("RESPONSE: \(JSONString)")
                     }
-                    if let value = value as? [String: Any]{
-                        completion(value, nil)
-                    }
-                    else{
-                        completion(nil, Error.failed)
-                    }
+                    completion(response.data, nil)
                     
                 case .failure(let value):
                     print("RESPONSE ERROR: \(value)")
@@ -64,6 +59,13 @@ class ApiManager: BaseApiManager {
                 }
             }
         }
+    }
+    
+    class func getAPIHeader() -> HTTPHeaders {
+        let header = ["Accept" : "application/json",
+                      "Content-Type" : "application/json"]
+        
+        return HTTPHeaders.init(header)
     }
 }
 
