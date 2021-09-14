@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,6 +41,36 @@
             </objects>
             <point key="canvasLocation" x="1005.7971014492755" y="75.669642857142847"/>
         </scene>
+        <!--Details Screen View Controller-->
+        <scene sceneID="RfX-1d-nFc">
+            <objects>
+                <viewController restorationIdentifier="DetailsScreenViewController" storyboardIdentifier="DetailsScreenViewController" id="wuz-c2-uM0" customClass="DetailsScreenViewController" customModule="EventSampleProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bci-CN-h6f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sS5-cq-A6d">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PPq-XD-yLc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sS5-cq-A6d" firstAttribute="width" secondItem="Bci-CN-h6f" secondAttribute="width" id="8aW-6Z-L4f"/>
+                            <constraint firstItem="sS5-cq-A6d" firstAttribute="centerY" secondItem="PPq-XD-yLc" secondAttribute="centerY" id="V7R-z9-k9N"/>
+                            <constraint firstItem="sS5-cq-A6d" firstAttribute="height" secondItem="PPq-XD-yLc" secondAttribute="height" id="gay-1R-Kg2"/>
+                            <constraint firstItem="sS5-cq-A6d" firstAttribute="centerX" secondItem="PPq-XD-yLc" secondAttribute="centerX" id="uPn-JJ-zQJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="sS5-cq-A6d" id="Aiq-vG-oHj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u5d-Cx-aUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="76"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="aet-hZ-Tbj">
             <objects>
@@ -59,4 +90,9 @@
             <point key="canvasLocation" x="95.652173913043484" y="75.669642857142847"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

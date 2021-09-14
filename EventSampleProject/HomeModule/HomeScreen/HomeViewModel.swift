@@ -12,6 +12,7 @@ class HomeViewModel: NSObject {
     let categoriesList = Observable<[EventType]>([])
     let eventsByCategory = Observable<[Event]>([])
     var didSelectCategory : ((String) -> Void)?
+    var didSelectEvent : ((Event) -> Void)?
 
     
     func getCategories(completion: @escaping(_ categories:[EventType]?, _ error: Error?) -> Void)

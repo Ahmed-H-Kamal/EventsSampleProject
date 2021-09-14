@@ -54,6 +54,10 @@ class HomeViewController: BaseViewController {
         self.viewModel.didSelectCategory = { (id) in
             self.getEventByCategory(with: id)
         }
+        
+        self.viewModel.didSelectEvent = { (event) in
+            self.goToDetailsScreen(event: event)
+        }
     }
     
     // MARK:- Register Cells
@@ -87,6 +91,14 @@ class HomeViewController: BaseViewController {
                 self.viewModel.eventsByCategory.value = response!
                 self.viewModel.isLoading.value = false
             }
+        }
+    }
+    
+    func goToDetailsScreen(event: Event) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let controller = storyboard.instantiateViewController(withIdentifier: "DetailsScreenViewController") as? DetailsScreenViewController {
+            controller.viewModel.event = event
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
 
@@ -139,7 +151,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: false)
+        let sectionViewModel = controller.viewModel.sectionViewModels.value[indexPath.section]
+        if let rowViewModel = sectionViewModel.rowViewModels[indexPath.row] as? ViewModelPressible {
+            rowViewModel.cellPressed()
+        }
     }
 }
 

@@ -26,7 +26,9 @@ class EventsTableViewCell: UITableViewCell, CellConfigurable{
         self.subTitleLabel.text = viewModel.event.eventTypeDescription
         self.dateLabel.text = viewModel.event.startDate
 
-        self.eventImage.sd_setImage(with: URL(string: viewModel.event.cover))
+        if let cover = viewModel.event.cover{
+            self.eventImage.sd_setImage(with: URL(string: cover))
+        }
 
         
     }

@@ -6,9 +6,10 @@
 //
 
 import Foundation
-
-class EventsTableViewModel: RowViewModel {
+import UIKit
+class EventsTableViewModel: RowViewModel,ViewModelPressible {
     let event: Event
+    var goToDetailsScreen : ((Event) -> Void)?
     
     init(with event : Event) {
         self.event = event
@@ -17,5 +18,7 @@ class EventsTableViewModel: RowViewModel {
     func cellIdentifier() -> String {
         return EventsTableViewCell.cellIdentifier()
     }
-    
+    func cellPressed() {
+        self.goToDetailsScreen?(event)
+    }
 }

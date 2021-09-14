@@ -8,14 +8,14 @@
 import Foundation
 
 class Event: Codable {
-    let longitude: String
-    let latitude: String
-    let endDate: String
-    let startDate: String
-    let eventTypeDescription: String
-    let cover: String
-    let name: String
-    let id: String
+    let longitude: String?
+    let latitude: String?
+    let endDate: String?
+    let startDate: String?
+    let eventTypeDescription: String?
+    let cover: String?
+    let name: String?
+    let id: String?
 
     enum CodingKeys: String, CodingKey {
         case longitude = "longitude"

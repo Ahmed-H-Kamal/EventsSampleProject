@@ -36,6 +36,9 @@ class HomeController: NSObject {
         
         for event in self.viewModel.eventsByCategory.value {
             let model = EventsTableViewModel(with: event)
+            model.goToDetailsScreen = { event in
+                self.viewModel.didSelectEvent?(event)
+            }
             listOfEvents.append(model)
         }
         return listOfEvents
