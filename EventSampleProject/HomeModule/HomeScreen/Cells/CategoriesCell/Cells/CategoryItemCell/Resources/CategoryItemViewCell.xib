@@ -24,10 +24,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raI-Kq-Rfx">
-                        <rect key="frame" x="0.0" y="87" width="207" height="10"/>
+                        <rect key="frame" x="0.0" y="94" width="207" height="3"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="10" id="sLn-gd-yZm"/>
+                            <constraint firstAttribute="height" constant="3" id="sLn-gd-yZm"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -38,11 +38,15 @@
                     <constraint firstItem="30E-4e-QT8" firstAttribute="centerY" secondItem="4eB-CC-Pya" secondAttribute="centerY" id="TRi-fa-6vc"/>
                     <constraint firstItem="30E-4e-QT8" firstAttribute="centerX" secondItem="4eB-CC-Pya" secondAttribute="centerX" id="b7y-ac-3FO"/>
                     <constraint firstItem="raI-Kq-Rfx" firstAttribute="centerX" secondItem="4eB-CC-Pya" secondAttribute="centerX" id="b81-v5-kxM"/>
+                    <constraint firstItem="raI-Kq-Rfx" firstAttribute="top" secondItem="4eB-CC-Pya" secondAttribute="top" id="gZc-Qt-ONq"/>
                     <constraint firstAttribute="bottom" secondItem="raI-Kq-Rfx" secondAttribute="bottom" id="qUL-z3-i1X"/>
+                    <constraint firstAttribute="bottom" secondItem="raI-Kq-Rfx" secondAttribute="bottom" id="tzj-7g-SPy"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="BJ2-dk-iqL"/>
+                        <exclude reference="gZc-Qt-ONq"/>
+                        <exclude reference="qUL-z3-i1X"/>
                     </mask>
                 </variation>
             </collectionViewCellContentView>

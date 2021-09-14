@@ -19,7 +19,7 @@ class CategoryItemViewCell: UICollectionViewCell, CellConfigurable {
     func setup(viewModel: RowViewModel) {
         if let viewModel = viewModel as? CategoryItemViewModel{
             if let title = viewModel.title{
-                self.configure(with: title)
+                self.configure(with: title, isSelected: viewModel.isSelected ?? false)
             }
         }
     }
@@ -31,7 +31,7 @@ class CategoryItemViewCell: UICollectionViewCell, CellConfigurable {
 
     override var isSelected: Bool {
         didSet {
-            self.contentView.backgroundColor = isSelected ? UIColor.init(hexString: "00796b") : UIColor.gray
+            self.contentView.backgroundColor = isSelected ? UIColor.init(hexString: "00796b") : UIColor.lightGray
             self.titleLabel.textColor = isSelected ? UIColor.white : UIColor.black
             self.viewBottom.isHidden = !isSelected
         }

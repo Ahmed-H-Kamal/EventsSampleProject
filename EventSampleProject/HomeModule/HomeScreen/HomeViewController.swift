@@ -45,6 +45,10 @@ class HomeViewController: BaseViewController {
         
         self.viewModel.categoriesList.addObserver() { [weak self] (categories) in
             self?.controller.buildViewModels()
+            if let id = self?.viewModel.categoriesList.value.first?.id{
+                self?.viewModel.didSelectCategory?(id)
+                self?.viewModel.selectedId = id
+            }
         }
         
         self.viewModel.eventsByCategory.addObserver() { [weak self] (categories) in

@@ -22,12 +22,14 @@ class CategoriesViewCell: UITableViewCell, CellConfigurable{
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.reloadData()
+        setCollectionViewFlowLayout()
+
     }
     
 }
 
 
-extension CategoriesViewCell : UICollectionViewDelegate, UICollectionViewDataSource{
+extension CategoriesViewCell : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return self.viewModel?.categoriesList.count ?? 0
@@ -37,8 +39,11 @@ extension CategoriesViewCell : UICollectionViewDelegate, UICollectionViewDataSou
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryItemViewCell.cellIdentifier(), for: indexPath) as! CategoryItemViewCell
         
-        let rowViewModel = CategoryItemViewModel(title: self.viewModel?.categoriesList[indexPath.row].name ?? "")
-        
+        let rowViewModel = CategoryItemViewModel(
+            title: self.viewModel?.categoriesList[indexPath.row].name ?? "",
+            id: self.viewModel?.categoriesList[indexPath.row].id ?? "",
+            isSelected: (self.viewModel?.selectedId == self.viewModel?.categoriesList[indexPath.row].id ?? ""))
+                
         cell.setup(viewModel: rowViewModel)
 
         return cell
@@ -53,8 +58,18 @@ extension CategoriesViewCell : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let id = self.viewModel?.categoriesList[indexPath.row].id{
             self.viewModel?.didSelectCategory?(id)
+            self.viewModel?.selectedId = id
         }
     }
 
+    func setCollectionViewFlowLayout() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.itemSize = CGSize(width: self.frame.size.width / 4, height: self.frame.size.height)
+        layout.scrollDirection = .horizontal
+        self.collectionView.collectionViewLayout = layout
+    }
     
 }

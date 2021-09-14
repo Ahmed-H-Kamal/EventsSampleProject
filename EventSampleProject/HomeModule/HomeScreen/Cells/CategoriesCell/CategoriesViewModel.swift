@@ -12,9 +12,15 @@ class CategoriesViewModel: RowViewModel {
     let sectionViewModels = Observable<[SectionViewModel]>([])
     let categoriesList : [EventType]
     var didSelectCategory : ((String) -> Void)?
+    var selectedId : String?
 
     init(with categoriesList : [EventType]) {
         self.categoriesList = categoriesList
+    }
+    
+    init(with categoriesList : [EventType], selectedId: String) {
+        self.categoriesList = categoriesList
+        self.selectedId = selectedId
     }
     
     func cellIdentifier() -> String {

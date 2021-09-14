@@ -17,9 +17,10 @@ class HomeController: NSObject {
     func buildViewModels() {
         var sectionViewModels = [SectionViewModel]()
 
-        let row_categories = CategoriesViewModel(with: self.viewModel.categoriesList.value)
+        let row_categories = CategoriesViewModel(with: self.viewModel.categoriesList.value, selectedId: self.viewModel.selectedId ?? "")
         row_categories.didSelectCategory = { (id) in
             self.viewModel.didSelectCategory?(id)
+            self.viewModel.selectedId = id
         }
         let section_categories = SectionViewModel(rowViewModels: [row_categories], sectionHeight: 0, sectionModel: nil)
         sectionViewModels.append(section_categories)
