@@ -17,22 +17,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="207" height="97"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="30E-4e-QT8">
-                        <rect key="frame" x="10.5" y="39" width="186" height="19.5"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30E-4e-QT8">
+                        <rect key="frame" x="0.0" y="40.5" width="207" height="16"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raI-Kq-Rfx">
                         <rect key="frame" x="0.0" y="94" width="207" height="3"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.011764705882352941" green="0.60784313725490191" blue="0.89803921568627454" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="3" id="sLn-gd-yZm"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="30E-4e-QT8" firstAttribute="width" secondItem="4eB-CC-Pya" secondAttribute="width" multiplier="0.9" id="6M3-et-XVO"/>
+                    <constraint firstItem="30E-4e-QT8" firstAttribute="width" secondItem="4eB-CC-Pya" secondAttribute="width" id="6M3-et-XVO"/>
                     <constraint firstAttribute="trailing" secondItem="raI-Kq-Rfx" secondAttribute="trailing" id="BJ2-dk-iqL"/>
                     <constraint firstItem="raI-Kq-Rfx" firstAttribute="width" secondItem="4eB-CC-Pya" secondAttribute="width" id="Fyo-6h-Jt2"/>
                     <constraint firstItem="30E-4e-QT8" firstAttribute="centerY" secondItem="4eB-CC-Pya" secondAttribute="centerY" id="TRi-fa-6vc"/>

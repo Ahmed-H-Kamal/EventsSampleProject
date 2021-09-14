@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVENTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bp7-h6-BMN">
-                                <rect key="frame" x="77" y="298.5" width="260.5" height="69.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVENTS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bp7-h6-BMN">
+                                <rect key="frame" x="77" y="288.5" width="260.5" height="69.5"/>
                                 <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -30,15 +30,31 @@
                                     <constraint firstAttribute="height" constant="150" id="J1U-wN-mhF"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Bevy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqO-Gt-dEe">
+                                <rect key="frame" x="265.5" y="358" width="72" height="23"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.0" green="0.47450980392156861" blue="0.41960784313725491" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.011764705882352941" green="0.60784313725490191" blue="0.89803921568627454" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="KIW-0o-QAn" firstAttribute="top" secondItem="bp7-h6-BMN" secondAttribute="bottom" constant="10" id="Dqb-E7-BG3"/>
+                            <constraint firstItem="nqO-Gt-dEe" firstAttribute="trailing" secondItem="bp7-h6-BMN" secondAttribute="trailing" id="5Zh-SL-17z"/>
+                            <constraint firstItem="nqO-Gt-dEe" firstAttribute="top" secondItem="bp7-h6-BMN" secondAttribute="bottom" id="7tL-4Z-mzX"/>
+                            <constraint firstItem="bp7-h6-BMN" firstAttribute="top" secondItem="nqO-Gt-dEe" secondAttribute="bottom" constant="10" id="7tx-SO-6I3"/>
+                            <constraint firstItem="KIW-0o-QAn" firstAttribute="top" secondItem="bp7-h6-BMN" secondAttribute="bottom" constant="20" id="Dqb-E7-BG3"/>
                             <constraint firstItem="KIW-0o-QAn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RBE-fQ-b0G"/>
+                            <constraint firstItem="nqO-Gt-dEe" firstAttribute="centerX" secondItem="bp7-h6-BMN" secondAttribute="centerX" id="SuG-kH-1CW"/>
                             <constraint firstItem="KIW-0o-QAn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dZV-ue-PaR"/>
                             <constraint firstItem="bp7-h6-BMN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ka2-46-0Lt"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7tx-SO-6I3"/>
+                                <exclude reference="SuG-kH-1CW"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

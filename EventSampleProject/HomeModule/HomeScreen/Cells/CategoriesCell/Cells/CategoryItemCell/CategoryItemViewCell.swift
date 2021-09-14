@@ -31,8 +31,8 @@ class CategoryItemViewCell: UICollectionViewCell, CellConfigurable {
 
     override var isSelected: Bool {
         didSet {
-            self.contentView.backgroundColor = isSelected ? UIColor.init(hexString: "00796b") : UIColor.lightGray
-            self.titleLabel.textColor = isSelected ? UIColor.white : UIColor.black
+            self.contentView.backgroundColor = isSelected ? UIColor.init(hexString: "DCDCDC") : UIColor.init(hexString: "DCDCDC")
+            self.titleLabel.textColor = isSelected ? UIColor.black : UIColor.black
             self.viewBottom.isHidden = !isSelected
         }
     }
