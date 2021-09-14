@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+class EventsTableViewModel: RowViewModel {
+    let event: Event
+    
+    init(with event : Event) {
+        self.event = event
+    }
+    
+    func cellIdentifier() -> String {
+        return EventsTableViewCell.cellIdentifier()
+    }
+    
+}

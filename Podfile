@@ -8,5 +8,5 @@ target 'EventSampleProject' do
   # Pods for EventSampleProject
     pod 'Alamofire'
     pod 'SVProgressHUD'
-
+    pod 'SDWebImage', '~> 5.0'
 end

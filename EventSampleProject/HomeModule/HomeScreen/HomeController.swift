@@ -8,7 +8,7 @@
 import Foundation
 class HomeController: NSObject {
     let viewModel : HomeViewModel
-
+    
     init(viewModel: HomeViewModel = HomeViewModel()) {
         self.viewModel = viewModel
     }
@@ -18,12 +18,27 @@ class HomeController: NSObject {
         var sectionViewModels = [SectionViewModel]()
 
         let row_categories = CategoriesViewModel(with: self.viewModel.categoriesList.value)
+        row_categories.didSelectCategory = { (id) in
+            self.viewModel.didSelectCategory?(id)
+        }
         let section_categories = SectionViewModel(rowViewModels: [row_categories], sectionHeight: 0, sectionModel: nil)
         sectionViewModels.append(section_categories)
         
         
+        let section_events = SectionViewModel(rowViewModels: getEventsByCategoryViewModels(), sectionHeight: 0, sectionModel: nil)
+        sectionViewModels.append(section_events)
+        
         self.viewModel.sectionViewModels.value = sectionViewModels
     }
     
+    func getEventsByCategoryViewModels() -> [RowViewModel] {
+        var listOfEvents = [RowViewModel]()
+        
+        for event in self.viewModel.eventsByCategory.value {
+            let model = EventsTableViewModel(with: event)
+            listOfEvents.append(model)
+        }
+        return listOfEvents
+    }
     
 }

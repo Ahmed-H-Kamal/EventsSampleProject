@@ -18,14 +18,14 @@ class Event: Codable {
     let id: String
 
     enum CodingKeys: String, CodingKey {
-        case longitude
-        case latitude
-        case endDate
-        case startDate
-        case eventTypeDescription
-        case cover
-        case name
-        case id
+        case longitude = "longitude"
+        case latitude = "latitude"
+        case endDate = "end_date"
+        case startDate = "start_date"
+        case eventTypeDescription = "description"
+        case cover = "cover"
+        case name = "name"
+        case id = "id"
     }
 
     init(longitude: String, latitude: String, endDate: String, startDate: String, eventTypeDescription: String, cover: String, name: String, id: String) {

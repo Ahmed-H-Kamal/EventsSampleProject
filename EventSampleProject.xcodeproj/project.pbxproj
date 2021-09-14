@@ -37,6 +37,7 @@
 		8C1D654B26F01ACC00461224 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D654A26F01ACC00461224 /* Event.swift */; };
 		8C1D654E26F01AFD00461224 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D654D26F01AFD00461224 /* EventsTableViewCell.swift */; };
 		8C1D655126F01B0B00461224 /* EventsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D655026F01B0B00461224 /* EventsTableViewModel.swift */; };
+		8C1D655626F01BF300461224 /* EventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D655526F01BF300461224 /* EventsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		8C1D654A26F01ACC00461224 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		8C1D654D26F01AFD00461224 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		8C1D655026F01B0B00461224 /* EventsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewModel.swift; sourceTree = "<group>"; };
+		8C1D655526F01BF300461224 /* EventsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsTableViewCell.xib; sourceTree = "<group>"; };
 		C7C642D49D668F517BC6096B /* Pods-EventSampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventSampleProject.debug.xcconfig"; path = "Target Support Files/Pods-EventSampleProject/Pods-EventSampleProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +184,7 @@
 		8C1D650726EDDBA100461224 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				8C1D655E26F031F200461224 /* DetailsScreen */,
 				8C1D650826EDDBB100461224 /* HomeScreen */,
 			);
 			path = HomeModule;
@@ -239,9 +242,8 @@
 		8C1D652826EFD6C000461224 /* EventsTableCell */ = {
 			isa = PBXGroup;
 			children = (
-				8C1D655426F01B1A00461224 /* Cells */,
-				8C1D655326F01B1000461224 /* Resources */,
 				8C1D654926F01AB600461224 /* Models */,
+				8C1D655326F01B1000461224 /* Resources */,
 				8C1D654D26F01AFD00461224 /* EventsTableViewCell.swift */,
 				8C1D655026F01B0B00461224 /* EventsTableViewModel.swift */,
 			);
@@ -301,15 +303,16 @@
 		8C1D655326F01B1000461224 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8C1D655526F01BF300461224 /* EventsTableViewCell.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		8C1D655426F01B1A00461224 /* Cells */ = {
+		8C1D655E26F031F200461224 /* DetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Cells;
+			path = DetailsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +376,7 @@
 			files = (
 				8C1D653126EFD75100461224 /* CategoriesViewCell.xib in Resources */,
 				8C1D64AA26ED487100461224 /* LaunchScreen.storyboard in Resources */,
+				8C1D655626F01BF300461224 /* EventsTableViewCell.xib in Resources */,
 				8C1D653D26EFE13100461224 /* CategoryItemViewCell.xib in Resources */,
 				8C1D64A726ED487100461224 /* Assets.xcassets in Resources */,
 				8C1D64A526ED486F00461224 /* Main.storyboard in Resources */,

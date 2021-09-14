@@ -6,3 +6,29 @@
 //
 
 import Foundation
+import UIKit
+import SDWebImage
+
+class EventsTableViewCell: UITableViewCell, CellConfigurable{
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var eventImage: UIImageView!
+
+    var viewModel: EventsTableViewModel?
+    
+    func setup(viewModel: RowViewModel) {
+        guard let viewModel = viewModel as? EventsTableViewModel else { return }
+        self.viewModel = viewModel
+        self.titleLabel.text = viewModel.event.name
+        self.subTitleLabel.text = viewModel.event.eventTypeDescription
+        self.dateLabel.text = viewModel.event.startDate
+
+        self.eventImage.sd_setImage(with: URL(string: viewModel.event.cover))
+
+        
+    }
+    
+}

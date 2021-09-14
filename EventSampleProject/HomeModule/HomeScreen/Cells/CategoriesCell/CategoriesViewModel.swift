@@ -11,7 +11,8 @@ class CategoriesViewModel: RowViewModel {
     let isLoading = Observable<Bool>(false)
     let sectionViewModels = Observable<[SectionViewModel]>([])
     let categoriesList : [EventType]
-    
+    var didSelectCategory : ((String) -> Void)?
+
     init(with categoriesList : [EventType]) {
         self.categoriesList = categoriesList
     }

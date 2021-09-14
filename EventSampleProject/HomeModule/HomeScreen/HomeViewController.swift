@@ -46,6 +46,14 @@ class HomeViewController: BaseViewController {
         self.viewModel.categoriesList.addObserver() { [weak self] (categories) in
             self?.controller.buildViewModels()
         }
+        
+        self.viewModel.eventsByCategory.addObserver() { [weak self] (categories) in
+            self?.controller.buildViewModels()
+        }
+        
+        self.viewModel.didSelectCategory = { (id) in
+            self.getEventByCategory(with: id)
+        }
     }
     
     // MARK:- Register Cells
@@ -58,6 +66,8 @@ class HomeViewController: BaseViewController {
         
         self.tableView.register(UINib.init(nibName: CategoriesViewCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: CategoriesViewCell.cellIdentifier())
         
+        self.tableView.register(UINib.init(nibName: EventsTableViewCell.cellIdentifier(), bundle: nil), forCellReuseIdentifier: EventsTableViewCell.cellIdentifier())
+        
     }
     
     func getCategoriesType() {
@@ -65,6 +75,16 @@ class HomeViewController: BaseViewController {
         self.viewModel.getCategories() { (response, error) in
             if error == nil{
                 self.viewModel.categoriesList.value = response!
+                self.viewModel.isLoading.value = false
+            }
+        }
+    }
+    
+    func getEventByCategory(with id: String) {
+        self.viewModel.isLoading.value = true
+        self.viewModel.getEventsByCategory() { (response, error) in
+            if error == nil{
+                self.viewModel.eventsByCategory.value = response!
                 self.viewModel.isLoading.value = false
             }
         }
@@ -107,7 +127,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        let sectionViewModel = self.viewModel.sectionViewModels.value[indexPath.section]
+        let rowViewModel = sectionViewModel.rowViewModels[indexPath.row]
+        
+            switch rowViewModel {
+                case is EventsTableViewModel:
+                    return 150
+            default:
+                return UITableView.automaticDimension
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

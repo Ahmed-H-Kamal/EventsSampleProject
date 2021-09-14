@@ -51,7 +51,9 @@ extension CategoriesViewCell : UICollectionViewDelegate, UICollectionViewDataSou
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let id = self.viewModel?.categoriesList[indexPath.row].id{
+            self.viewModel?.didSelectCategory?(id)
+        }
     }
 
     
