@@ -25,6 +25,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         self.registerCells()
         self.setupBinding()
+        self.setupPullToRefresh()
         self.getCategoriesType()
     }
     
@@ -78,12 +79,23 @@ class HomeViewController: BaseViewController {
         
     }
     
+    func setupPullToRefresh() {
+        self.viewModel.refreshControl.value.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.viewModel.refreshControl.value.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(self.viewModel.refreshControl.value)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       getCategoriesType()
+    }
+    
     func getCategoriesType() {
         self.viewModel.isLoading.value = true
         self.viewModel.getCategories() { (response, error) in
             if error == nil{
                 self.viewModel.categoriesList.value = response!
                 self.viewModel.isLoading.value = false
+                self.viewModel.refreshControl.value.endRefreshing()
             }
         }
     }

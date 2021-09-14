@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+
 class HomeViewModel: NSObject {
     let isLoading = Observable<Bool>(false)
     let sectionViewModels = Observable<[SectionViewModel]>([])
@@ -14,6 +16,7 @@ class HomeViewModel: NSObject {
     var didSelectCategory : ((String) -> Void)?
     var didSelectEvent : ((Event) -> Void)?
     var selectedId : String?
+    let refreshControl = Observable<UIRefreshControl>(UIRefreshControl())
 
     
     func getCategories(completion: @escaping(_ categories:[EventType]?, _ error: Error?) -> Void)
